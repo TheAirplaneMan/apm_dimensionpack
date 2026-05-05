@@ -56,6 +56,24 @@ minetest.register_node("apm_dimensionpack:swamp_tree", {
 	on_place = minetest.rotate_node
 })
 
+minetest.register_craft({
+	output = "apm_dimensionpack:swamp_wood 4",
+	recipe = {
+		{"apm_dimensionpack:swamp_tree"},
+	}
+})
+
+minetest.register_node("apm_dimensionpack:swamp_wood", {
+	description = ("Swamp Tree Wood Planks"),
+	paramtype2 = "facedir",
+	place_param2 = 0,
+	tiles = {"apm_dimensionpack_swamp_wood.png"},
+	is_ground_content = false,
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
+	sounds = default.node_sound_wood_defaults(),
+})
+
+
 minetest.register_node("apm_dimensionpack:swamp_leaves", {
 	description = ("Swamp Tree Leaves"),
 	drawtype = "allfaces_optional",
@@ -97,6 +115,31 @@ minetest.register_node("apm_dimensionpack:brittle_stick_tree", {
 	sounds = default.node_sound_wood_defaults(),
 
 	on_place = minetest.rotate_node
+})
+
+minetest.register_node("apm_dimensionpack:brittle_stick_tree_block", {
+	description = ("Brittle Stick Tree Block"),
+	tiles = {"apm_dimensionpack_brittle_stick_tree_block_top.png", "apm_dimensionpack_brittle_stick_tree_block_top.png", "apm_dimensionpack_brittle_stick_tree_block.png"},
+	paramtype2 = "facedir",
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+
+	on_place = minetest.rotate_node
+})
+
+minetest.register_craft({
+	output = "apm_dimensionpack:brittle_stick_tree 4",
+	recipe = {
+		{"apm_dimensionpack:brittle_stick_tree_block"},
+	}
+})
+
+minetest.register_craft({
+	output = "apm_dimensionpack:brittle_stick_tree_block",
+	recipe = {
+		{"apm_dimensionpack:brittle_stick_tree", "apm_dimensionpack:brittle_stick_tree"},
+		{"apm_dimensionpack:brittle_stick_tree", "apm_dimensionpack:brittle_stick_tree"},
+	}
 })
 
 minetest.register_node("apm_dimensionpack:brittle_stick_leaves", {

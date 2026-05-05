@@ -33,6 +33,12 @@ minetest.register_craft({
 	recipe = "apm_dimensionpack:pyrosium_lump",
 })
 
+minetest.register_craft({
+	output = "apm_dimensionpack:brittle_stick 2",
+	recipe = {
+		{"apm_dimensionpack:brittle_stick_tree"},
+	}
+})
 
 -- Brittlestick
 
