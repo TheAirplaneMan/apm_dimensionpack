@@ -1,13 +1,22 @@
 local liraofd_ground_ores = {
 	["apm_dimensionpack:swamp_tree_1"] = 1000,
+	["apm_dimensionpack:rotten_tree_1"] = 10000,
+	["flowers:mushroom_brown"] = 1000,
+	["flowers:mushroom_red"] = 1000,
+	["default:dry_shrub"] = 1250,
+	["apm_dimensionpack:liraofdian_grass_1"] = 500,
+	["apm_dimensionpack:liraofdian_grass_2"] = 500,
+	["apm_dimensionpack:liraofdian_grass_3"] = 500,
 }
 
 local liraofd_stone_ores = {
-	["apm_dimensionpack:swampstone_with_sulphur"] = 250,
-	["apm_dimensionpack:swampstone_with_pyrosium"] = 700,
+	["apm_dimensionpack:swampstone_with_sulphur"] = 800,
+	["apm_dimensionpack:swampstone_with_pyrosium"] = 2250,
+	["default:mese"] = 10000,
 }
 
 minetest.register_node("apm_dimensionpack:swamp_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_schematic=1,not_in_creative_inventory=1},})
+minetest.register_node("apm_dimensionpack:rotten_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_schematic=1,not_in_creative_inventory=1},})
 
 multidimensions.register_dimension("liraofd",{
 	ground_ores = table.copy(liraofd_ground_ores),
@@ -41,7 +50,71 @@ minetest.register_lbm({
 		local tree=""
 		if node.name=="apm_dimensionpack:swamp_tree_1" then
 			tree=minetest.get_modpath("apm_dimensionpack") .. "/schematics/swamp_tree_1.mts"
+		elseif node.name=="apm_dimensionpack:rotten_tree_1" then
+			tree=minetest.get_modpath("apm_dimensionpack") .. "/schematics/rotten_tree_1.mts"
 		end
 		minetest.place_schematic({x=pos.x,y=pos.y,z=pos.z}, tree, "random", {}, true)
 	end,
 })
+
+local LIRAOFD_SKY = {r = 35, g = 37, b = 32}
+
+local original_sky = {}
+
+-- Save original sky when player joins
+minetest.register_on_joinplayer(function(player)
+    local name = player:get_player_name()
+    -- Use the modern table format
+    original_sky[name] = player:get_sky(true)
+end)
+
+local function update_sky(player)
+    if not player or not player:is_player() then return end
+
+    local y = player:get_pos().y
+    local name = player:get_player_name()
+
+    if y >= 2000 and y <= 3000 then
+        player:set_sky({
+            type = "regular",
+            sky_color = {
+                day_sky     = LIRAOFD_SKY,
+                day_horizon = LIRAOFD_SKY,
+                night_sky   = LIRAOFD_SKY,
+                night_horizon = LIRAOFD_SKY,
+                dawn_sky    = LIRAOFD_SKY,
+                dawn_horizon = LIRAOFD_SKY,
+                indoors     = LIRAOFD_SKY,
+            },
+            clouds = false,
+            fog = {
+                fog_color = {r = 22, g = 22, b = 28},
+            },
+        })
+    else
+        -- Restore original sky safely
+        local orig = original_sky[name]
+        if orig then
+            player:set_sky(orig)
+        else
+            player:set_sky()   -- reset to default
+        end
+    end
+end
+
+-- Main update loop
+minetest.register_globalstep(function()
+    for _, player in ipairs(minetest.get_connected_players()) do
+        update_sky(player)
+    end
+end)
+
+-- Initial update
+minetest.register_on_joinplayer(function(player)
+    minetest.after(1, update_sky, player)
+end)
+
+-- Cleanup
+minetest.register_on_leaveplayer(function(player)
+    original_sky[player:get_player_name()] = nil
+end)
