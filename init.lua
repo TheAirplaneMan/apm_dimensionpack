@@ -10,6 +10,10 @@ dofile(modpath.."/liraofd_item.lua")
 dofile(modpath.."/liraofd_node.lua")
 dofile(modpath.."/sulphur_torch.lua")
 
+-- Liraofd
+
+--dofile(modpath.."/oblivion_item.lua")
+dofile(modpath.."/oblivion_node.lua")
 
 
 

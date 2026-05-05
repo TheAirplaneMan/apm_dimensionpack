@@ -5,6 +5,21 @@ minetest.register_node("apm_dimensionpack:swampstone", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node("apm_dimensionpack:swampstone_brick", {
+	description = ("Swampstone Brick"),
+	tiles = {"apm_dimensionpack_swampstone_brick.png"},
+	groups = {cracky = 3, stone = 1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_craft({
+	output = "apm_dimensionpack:swampstone_brick 4",
+	recipe = {
+		{"apm_dimensionpack:swampstone", "apm_dimensionpack:swampstone"},
+		{"apm_dimensionpack:swampstone", "apm_dimensionpack:swampstone"},
+	}
+})
+
 minetest.register_node("apm_dimensionpack:swampstone_with_sulphur", {
 	description = ("Sulphur Ore"),
 	tiles = {"apm_dimensionpack_swampstone.png^apm_dimensionpack_sulphur_mineral.png"},
@@ -111,7 +126,7 @@ minetest.register_node("apm_dimensionpack:brittle_stick_tree", {
 		}
 	},
 	paramtype2 = "facedir",
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 
 	on_place = minetest.rotate_node
@@ -121,7 +136,7 @@ minetest.register_node("apm_dimensionpack:brittle_stick_tree_block", {
 	description = ("Brittle Stick Tree Block"),
 	tiles = {"apm_dimensionpack_brittle_stick_tree_block_top.png", "apm_dimensionpack_brittle_stick_tree_block_top.png", "apm_dimensionpack_brittle_stick_tree_block.png"},
 	paramtype2 = "facedir",
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 
 	on_place = minetest.rotate_node
