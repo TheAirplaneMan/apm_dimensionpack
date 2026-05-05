@@ -1,6 +1,8 @@
 local liraofd_ground_ores = {
 	["apm_dimensionpack:swamp_tree_1"] = 1000,
 	["apm_dimensionpack:rotten_tree_1"] = 10000,
+	["apm_dimensionpack:brittle_stick_tree_1"] = 10000,
+	["apm_dimensionpack:brittle_stick_tree_2"] = 10000,
 	["flowers:mushroom_brown"] = 1000,
 	["flowers:mushroom_red"] = 1000,
 	["default:dry_shrub"] = 1250,
@@ -17,6 +19,9 @@ local liraofd_stone_ores = {
 
 minetest.register_node("apm_dimensionpack:swamp_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_schematic=1,not_in_creative_inventory=1},})
 minetest.register_node("apm_dimensionpack:rotten_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_schematic=1,not_in_creative_inventory=1},})
+minetest.register_node("apm_dimensionpack:brittle_stick_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_schematic=1,not_in_creative_inventory=1},})
+minetest.register_node("apm_dimensionpack:brittle_stick_tree_2", {drawtype="airlike",groups = {apm_dimensionpack_schematic=1,not_in_creative_inventory=1},})
+
 
 multidimensions.register_dimension("liraofd",{
 	ground_ores = table.copy(liraofd_ground_ores),
@@ -52,6 +57,10 @@ minetest.register_lbm({
 			tree=minetest.get_modpath("apm_dimensionpack") .. "/schematics/swamp_tree_1.mts"
 		elseif node.name=="apm_dimensionpack:rotten_tree_1" then
 			tree=minetest.get_modpath("apm_dimensionpack") .. "/schematics/rotten_tree_1.mts"
+		elseif node.name=="apm_dimensionpack:brittle_stick_tree_1" then
+			tree=minetest.get_modpath("apm_dimensionpack") .. "/schematics/brittle_stick_tree_1.mts"
+		elseif node.name=="apm_dimensionpack:brittle_stick_tree_2" then
+			tree=minetest.get_modpath("apm_dimensionpack") .. "/schematics/brittle_stick_tree_2.mts"
 		end
 		minetest.place_schematic({x=pos.x,y=pos.y,z=pos.z}, tree, "random", {}, true)
 	end,

@@ -32,3 +32,13 @@ minetest.register_craft({
 	output = "apm_dimensionpack:pyrosium_ingot",
 	recipe = "apm_dimensionpack:pyrosium_lump",
 })
+
+
+-- Brittlestick
+
+minetest.register_craftitem("apm_dimensionpack:brittle_stick", {
+	description = ("Brittle Stick"),
+	inventory_image = "apm_dimensionpack_brittle_stick.png",
+	groups = {food_brittle_stick = 1, food_stick = 1},
+	on_use = minetest.item_eat(2),
+})

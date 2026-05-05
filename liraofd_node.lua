@@ -79,6 +79,49 @@ minetest.register_node("apm_dimensionpack:swamp_leaves", {
 
 
 
+-- Brittle Stick
+
+minetest.register_node("apm_dimensionpack:brittle_stick_tree", {
+	description = ("Brittle Stick Tree"),
+	tiles = {"apm_dimensionpack_brittle_stick_tree_top.png", "apm_dimensionpack_brittle_stick_tree_top.png", "apm_dimensionpack_brittle_stick_tree.png"},
+	drawtype = "nodebox",
+	paramtype = "light",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.2500, -0.5000, -0.2500, 0.2500, 0.5000, 0.2500}
+		}
+	},
+	paramtype2 = "facedir",
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+
+	on_place = minetest.rotate_node
+})
+
+minetest.register_node("apm_dimensionpack:brittle_stick_leaves", {
+	description = ("Brittle Stick Tree Leaves"),
+	drawtype = "allfaces_optional",
+	tiles = {"apm_dimensionpack_brittle_stick_leaves.png"},
+	special_tiles = {"apm_dimensionpack_brittle_stick_leaves_simple.png"},
+	waving = 1,
+	paramtype = "light",
+	is_ground_content = false,
+	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"apm_dimensionpack:brittle_stick_sapling"}, rarity = 20},
+			{items = {"apm_dimensionpack:brittle_stick_leaves"}}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+
+	after_place_node = after_place_leaves,
+})
+
+
+
 
 
 
