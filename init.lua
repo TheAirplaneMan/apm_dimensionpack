@@ -4,6 +4,12 @@ local modpath = minetest.get_modpath("apm_dimensionpack")
 
 
 
+-- Misc Items
+
+dofile(modpath.."/misc_generation.lua")
+dofile(modpath.."/misc_node.lua")
+dofile(modpath.."/misc_item.lua")
+
 -- Liraofd
 
 dofile(modpath.."/liraofd_crafting.lua")

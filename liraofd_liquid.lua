@@ -1,3 +1,14 @@
+if minetest.get_modpath("bucket") then
+	bucket.register_liquid(
+		"apm_dimensionpack:swamp_water_source",
+		"apm_dimensionpack:swamp_water_flowing",
+		"apm_dimensionpack:bucket_swamp_water",
+		"bucket.png^apm_dimensionpack_swamp_water_bucket.png",
+		("Swamp Water Bucket"),
+		{tool = 1, water_bucket = 1}
+	)
+end
+
 minetest.register_node("apm_dimensionpack:swamp_water_source", {
 	description = ("Swamp Water Source"),
 	drawtype = "liquid",

@@ -1,3 +1,23 @@
+-- Swamp Relic
+
+minetest.register_craftitem("apm_dimensionpack:marsh_relic", {
+	description = ("Marsh Relic"),
+	inventory_image = "apm_dimensionpack_marsh_relic.png"
+})
+
+minetest.register_craftitem("apm_dimensionpack:marsh_relic_fragment", {
+	description = ("Marsh Relic Fragment"),
+	inventory_image = "apm_dimensionpack_marsh_relic_fragment.png"
+})
+
+minetest.register_craft({
+	output = "apm_dimensionpack:marsh_relic",
+	recipe = {
+		{"apm_dimensionpack:marsh_relic_fragment", "apm_dimensionpack:marsh_relic_fragment"},
+		{"apm_dimensionpack:marsh_relic_fragment", "apm_dimensionpack:marsh_relic_fragment"},
+	}
+})
+
 
 -- Sulphur
 
