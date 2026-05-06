@@ -43,9 +43,9 @@ multidimensions.register_dimension("liraofd",{
 	sand="apm_dimensionpack:mud",
 	node={description="Liraofd Portal-Block"},
 	craft = {
-		{"dimensionfun:8bits", "default:steel_ingot", "dimensionfun:8bits"},
-		{"default:steel_ingot","default:mese","default:steel_ingot",},
-		{"dimensionfun:8bits", "default:steel_ingot", "dimensionfun:8bits"},
+		{"apm_dimensionpack:resonance_gemstone", "apm_dimensionpack:dimension_token_liraofd", "apm_dimensionpack:resonance_gemstone"},
+		{"default:mossycobble","apm_dimensionpack:resonance_gemstone_primed","default:mossycobble",},
+		{"default:obsidian", "default:obsidian", "default:obsidian"},
 	}
 })
 
@@ -144,3 +144,7 @@ end)
 minetest.register_on_leaveplayer(function(player)
     original_sky[player:get_player_name()] = nil
 end)
+
+minetest.override_item("multidimensions:teleporter_liraofd", {
+	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_liraofd.png", "default_obsidian.png", "default_obsidian.png^apm_dimensionpack_portal_block_liraofd.png"},
+})
