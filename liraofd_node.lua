@@ -28,12 +28,30 @@ minetest.register_node("apm_dimensionpack:swampstone_with_sulphur", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node("apm_dimensionpack:sulphur_block", {
+	description = ("Sulphur Block"),
+	tiles = {"apm_dimensionpack_sulphur_block.png"},
+	is_ground_content = false,
+	groups = {cracky = 3},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 minetest.register_node("apm_dimensionpack:swampstone_with_pyrosium", {
 	description = ("Pyrosium Ore"),
 	tiles = {"apm_dimensionpack_swampstone.png^apm_dimensionpack_pyrosium_mineral.png"},
 	groups = {cracky = 2},
 	drop = "apm_dimensionpack:pyrosium_lump",
 	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("apm_dimensionpack:pyrosium_block", {
+	description = ("Pyrosium Block"),
+	tiles = {"apm_dimensionpack_pyrosium_block.png"},
+	is_ground_content = false,
+	groups = {cracky = 1, level = 2},
+	paramtype = "light",
+	light_source = 7,
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_node("apm_dimensionpack:mud", {
@@ -236,3 +254,23 @@ for i = 2, 3 do
 		},
 	})
 end
+
+minetest.register_node("apm_dimensionpack:bog_grass", {
+	description = ("Bog Grass"),
+	drawtype = "plantlike",
+	waving = 1,
+	visual_scale = 1.69,
+	tiles = {"apm_dimensionpack_bog_grass.png"},
+	inventory_image = "apm_dimensionpack_bog_grass.png",
+	wield_image = "apm_dimensionpack_bog_grass.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	buildable_to = true,
+	groups = {snappy = 3, flora = 1, attached_node = 1, grass = 1, bog_grass = 1, flammable = 1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16},
+	},
+})

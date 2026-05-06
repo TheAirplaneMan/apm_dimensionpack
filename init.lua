@@ -6,11 +6,13 @@ local modpath = minetest.get_modpath("apm_dimensionpack")
 
 -- Liraofd
 
+dofile(modpath.."/liraofd_crafting.lua")
 dofile(modpath.."/liraofd_item.lua")
 dofile(modpath.."/liraofd_node.lua")
+dofile(modpath.."/liraofd_tool.lua")
 dofile(modpath.."/sulphur_torch.lua")
 
--- Liraofd
+-- Oblivion
 
 --dofile(modpath.."/oblivion_item.lua")
 dofile(modpath.."/oblivion_node.lua")
