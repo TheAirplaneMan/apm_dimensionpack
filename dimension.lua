@@ -148,3 +148,21 @@ end)
 minetest.override_item("multidimensions:teleporter_liraofd", {
 	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_liraofd.png", "default_obsidian.png", "default_obsidian.png^apm_dimensionpack_portal_block_liraofd.png"},
 })
+
+minetest.override_item("multidimensions:teleporterre", {
+	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_return.png", "default_obsidian.png", "default_obsidian.png^apm_dimensionpack_portal_block_return.png"},
+})
+
+
+-- Unregister base dimensions, bye bye
+
+minetest.unregister_item("multidimensions:teleporter_hot")
+minetest.unregister_item("multidimensions:teleporter_cold")
+minetest.unregister_item("multidimensions:teleporter_water")
+minetest.unregister_item("multidimensions:teleporter_desert")
+minetest.unregister_item("multidimensions:teleporter_savana")
+minetest.unregister_item("multidimensions:teleporter_flatland")
+minetest.unregister_item("multidimensions:teleporter_sandstone")
+minetest.unregister_item("multidimensions:teleporter_earthlike1")
+minetest.unregister_item("multidimensions:teleporter_earthlike2")
+minetest.unregister_item("multidimensions:teleporter_floatandlike")
