@@ -33,6 +33,25 @@ minetest.register_craft({
 	recipe = "apm_dimensionpack:pyrosium_lump",
 })
 
+
+-- Stygium
+
+minetest.register_craftitem("apm_dimensionpack:stygium_lump", {
+	description = ("Stygium Lump"),
+	inventory_image = "apm_dimensionpack_stygium_lump.png"
+})
+
+minetest.register_craftitem("apm_dimensionpack:stygium_ingot", {
+	description = ("Stygium Ingot"),
+	inventory_image = "apm_dimensionpack_stygium_ingot.png"
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "apm_dimensionpack:stygium_ingot",
+	recipe = "apm_dimensionpack:stygium_lump",
+})
+
 minetest.register_craft({
 	output = "apm_dimensionpack:brittle_stick 2",
 	recipe = {

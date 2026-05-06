@@ -29,3 +29,20 @@ minetest.register_craft({
 		{"apm_dimensionpack:pyrosium_ingot", "apm_dimensionpack:pyrosium_ingot", "apm_dimensionpack:pyrosium_ingot"},
 	}
 })
+
+minetest.register_craft({
+	output = "apm_dimensionpack:stygium_ingot 9",
+	recipe = {
+		{"apm_dimensionpack:stygium_block"},
+	}
+})
+
+minetest.register_craft({
+	output = "apm_dimensionpack:stygium_block",
+	recipe = {
+		{"apm_dimensionpack:stygium_ingot", "apm_dimensionpack:stygium_ingot", "apm_dimensionpack:stygium_ingot"},
+		{"apm_dimensionpack:stygium_ingot", "apm_dimensionpack:stygium_ingot", "apm_dimensionpack:stygium_ingot"},
+		{"apm_dimensionpack:stygium_ingot", "apm_dimensionpack:stygium_ingot", "apm_dimensionpack:stygium_ingot"},
+	}
+})
+

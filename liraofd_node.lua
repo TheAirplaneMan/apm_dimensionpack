@@ -54,6 +54,22 @@ minetest.register_node("apm_dimensionpack:pyrosium_block", {
 	sounds = default.node_sound_metal_defaults(),
 })
 
+minetest.register_node("apm_dimensionpack:swampstone_with_stygium", {
+	description = ("Stygium Ore"),
+	tiles = {"apm_dimensionpack_swampstone.png^apm_dimensionpack_stygium_mineral.png"},
+	groups = {cracky = 2},
+	drop = "apm_dimensionpack:pyrosium_lump",
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("apm_dimensionpack:stygium_block", {
+	description = ("Stygium Block"),
+	tiles = {"apm_dimensionpack_stygium_block.png"},
+	is_ground_content = false,
+	groups = {cracky = 1, level = 2},
+	sounds = default.node_sound_metal_defaults(),
+})
+
 minetest.register_node("apm_dimensionpack:mud", {
 	description = ("Mud"),
 	tiles = {"apm_dimensionpack_mud.png"},

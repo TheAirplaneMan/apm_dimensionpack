@@ -8,6 +8,7 @@ local modpath = minetest.get_modpath("apm_dimensionpack")
 
 dofile(modpath.."/liraofd_crafting.lua")
 dofile(modpath.."/liraofd_item.lua")
+dofile(modpath.."/liraofd_liquid.lua")
 dofile(modpath.."/liraofd_node.lua")
 dofile(modpath.."/liraofd_tool.lua")
 dofile(modpath.."/sulphur_torch.lua")

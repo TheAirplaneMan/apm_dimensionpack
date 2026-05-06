@@ -17,7 +17,7 @@ local liraofd_ground_ores = {
 local liraofd_stone_ores = {
 	["apm_dimensionpack:swampstone_with_sulphur"] = 800,
 	["apm_dimensionpack:swampstone_with_pyrosium"] = 2250,
-	["default:mese"] = 30000,
+	["apm_dimensionpack:swampstone_with_stygium"] = 5000,
 }
 
 minetest.register_node("apm_dimensionpack:swamp_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_schematic_submerge=1,not_in_creative_inventory=1},})
@@ -38,7 +38,7 @@ multidimensions.register_dimension("liraofd",{
 --	},
 	dirt="apm_dimensionpack:mud",
 	grass="apm_dimensionpack:mud_with_liraofdian_grass",
-	water="default:water_source",
+	water="apm_dimensionpack:swamp_water_source",
 	stone="apm_dimensionpack:swampstone",
 	sand="apm_dimensionpack:mud",
 	node={description="Liraofd Portal-Block"},
