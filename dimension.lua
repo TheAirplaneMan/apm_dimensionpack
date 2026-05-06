@@ -49,6 +49,10 @@ multidimensions.register_dimension("liraofd",{
 	}
 })
 
+minetest.override_item("multidimensions:teleporter_liraofd", {
+	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_liraofd.png", "default_obsidian.png", "default_obsidian.png^apm_dimensionpack_portal_block_liraofd.png"},
+})
+
 minetest.register_lbm({ 
 	name = "apm_dimensionpack:schematic_placer_submerge",
 	run_at_every_load = true,
@@ -145,12 +149,35 @@ minetest.register_on_leaveplayer(function(player)
     original_sky[player:get_player_name()] = nil
 end)
 
-minetest.override_item("multidimensions:teleporter_liraofd", {
-	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_liraofd.png", "default_obsidian.png", "default_obsidian.png^apm_dimensionpack_portal_block_liraofd.png"},
-})
-
 minetest.override_item("multidimensions:teleporterre", {
 	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_return.png", "default_obsidian.png", "default_obsidian.png^apm_dimensionpack_portal_block_return.png"},
+})
+
+multidimensions.register_dimension("frostland",{
+--	ground_ores = table.copy(liraofd_ground_ores),
+--	stone_ores = table.copy(liraofd_stone_ores),
+--	sand_ores={["default:clay"]={chunk=2,chance=5000}},
+--	grass_ores={
+--		["default:dirt_with_snow"]={chance=1,max_heat=20},
+--	},
+--	water_ores={
+--		["default:ice"]={chance=1,max_heat=20},
+--	},
+	dirt="apm_dimensionpack:frozen_dirt",
+	grass="apm_dimensionpack:frozen_dirt_with_frozen_grass",
+	water="apm_dimensionpack:cold_water_source",
+	stone="apm_dimensionpack:frozen_stone",
+	sand="apm_dimensionpack:frozen_dirt",
+	node={description="Frostland Portal-Block"},
+	craft = {
+		{"apm_dimensionpack:resonance_gemstone", "apm_dimensionpack:dimension_token_frostland", "apm_dimensionpack:resonance_gemstone"},
+		{"default:snowblock","apm_dimensionpack:resonance_gemstone_primed","default:snowblock",},
+		{"apm_dimensionpack:ice_obsidian", "apm_dimensionpack:ice_obsidian", "apm_dimensionpack:ice_obsidian"},
+	}
+})
+
+minetest.override_item("multidimensions:teleporter_frostland", {
+	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_frostland.png", "apm_dimensionpack_ice_obsidian.png", "apm_dimensionpack_ice_obsidian.png^apm_dimensionpack_portal_block_frostland.png"},
 })
 
 

@@ -10,6 +10,11 @@ dofile(modpath.."/misc_generation.lua")
 dofile(modpath.."/misc_node.lua")
 dofile(modpath.."/misc_item.lua")
 
+-- Frostland
+
+dofile(modpath.."/frostland_liquid.lua")
+dofile(modpath.."/frostland_node.lua")
+
 -- Liraofd
 
 dofile(modpath.."/liraofd_crafting.lua")
@@ -17,6 +22,7 @@ dofile(modpath.."/liraofd_item.lua")
 dofile(modpath.."/liraofd_liquid.lua")
 dofile(modpath.."/liraofd_node.lua")
 dofile(modpath.."/liraofd_tool.lua")
+dofile(modpath.."/mud_monster.lua")
 dofile(modpath.."/sulphur_torch.lua")
 
 -- Oblivion

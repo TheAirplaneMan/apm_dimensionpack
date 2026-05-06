@@ -48,6 +48,11 @@ minetest.register_craftitem("apm_dimensionpack:dimension_token_liraofd", {
 	inventory_image = "apm_dimensionpack_dimension_token_liraofd.png"
 })
 
+minetest.register_craftitem("apm_dimensionpack:dimension_token_frostland", {
+	description = ("Frostland Dimension Token"),
+	inventory_image = "apm_dimensionpack_dimension_token_frostland.png"
+})
+
 minetest.register_craft({
 	output = "apm_dimensionpack:dimension_token_blank",
 	recipe = {
@@ -61,4 +66,10 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "apm_dimensionpack:dimension_token_liraofd",
 	recipe = {"apm_dimensionpack:dimension_token_blank", "apm_dimensionpack:marsh_relic", "default:junglesapling", "flowers:mushroom_red", "default:mossycobble", "bucket:bucket_water"}
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "apm_dimensionpack:dimension_token_frostland",
+	recipe = {"apm_dimensionpack:dimension_token_blank", "default:diamond", "default:flint", "default:glass", "default:ice", "default:snow"}
 })
