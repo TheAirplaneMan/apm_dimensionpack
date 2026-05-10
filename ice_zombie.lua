@@ -37,7 +37,7 @@ mobs:register_mob("apm_dimensionpack:ice_zombie", {
 })
 
 mobs:spawn({
-	name = "apm_dimensionpack:mud_monster",
+	name = "apm_dimensionpack:ice_zombie",
 	nodes = {"apm_dimensionpack:frozen_stone", "apm_dimensionpack:frozen_dirt_with_frozen_grass", "apm_dimensionpack:frozen_dirt"},
 	chance = 7000,
 	active_object_count = 2,

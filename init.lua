@@ -2,7 +2,7 @@ multidimensions.clear_dimensions() -- Purge the rest of the dimensions
 
 local modpath = minetest.get_modpath("apm_dimensionpack")
 
-
+dofile(modpath.."/override.lua")
 
 -- Misc Items
 
@@ -28,6 +28,7 @@ dofile(modpath.."/liraofd_liquid.lua")
 dofile(modpath.."/liraofd_node.lua")
 dofile(modpath.."/liraofd_tool.lua")
 dofile(modpath.."/mud_monster.lua")
+dofile(modpath.."/mildyte.lua")
 dofile(modpath.."/sulphur_torch.lua")
 
 -- Oblivion
