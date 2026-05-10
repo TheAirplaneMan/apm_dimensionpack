@@ -9,6 +9,7 @@ local liraofd_ground_ores = {
 	["default:dry_shrub"] = 1250,
 	["apm_dimensionpack:bog_grass"] = 500,
 	["default:junglegrass"] = 10000,
+	["apm_dimensionpack:swampweed"] = 10000,
 	["apm_dimensionpack:liraofdian_grass_1"] = 500,
 	["apm_dimensionpack:liraofdian_grass_2"] = 300,
 	["apm_dimensionpack:liraofdian_grass_3"] = 200,
@@ -20,11 +21,11 @@ local liraofd_stone_ores = {
 	["apm_dimensionpack:swampstone_with_stygium"] = 5000,
 }
 
-minetest.register_node("apm_dimensionpack:swamp_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_schematic_submerge=1,not_in_creative_inventory=1},})
-minetest.register_node("apm_dimensionpack:swamp_tree_2", {drawtype="airlike",groups = {apm_dimensionpack_schematic_submerge=1,not_in_creative_inventory=1},})
-minetest.register_node("apm_dimensionpack:rotten_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_schematic_submerge=1,not_in_creative_inventory=1},})
-minetest.register_node("apm_dimensionpack:brittle_stick_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_schematic=1,not_in_creative_inventory=1},})
-minetest.register_node("apm_dimensionpack:brittle_stick_tree_2", {drawtype="airlike",groups = {apm_dimensionpack_schematic=1,not_in_creative_inventory=1},})
+minetest.register_node("apm_dimensionpack:swamp_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_liraofd_schematic_submerge=1,not_in_creative_inventory=1},})
+minetest.register_node("apm_dimensionpack:swamp_tree_2", {drawtype="airlike",groups = {apm_dimensionpack_liraofd_schematic_submerge=1,not_in_creative_inventory=1},})
+minetest.register_node("apm_dimensionpack:rotten_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_liraofd_schematic_submerge=1,not_in_creative_inventory=1},})
+minetest.register_node("apm_dimensionpack:brittle_stick_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_liraofd_schematic=1,not_in_creative_inventory=1},})
+minetest.register_node("apm_dimensionpack:brittle_stick_tree_2", {drawtype="airlike",groups = {apm_dimensionpack_liraofd_schematic=1,not_in_creative_inventory=1},})
 
 multidimensions.register_dimension("liraofd",{
 	ground_ores = table.copy(liraofd_ground_ores),
@@ -54,9 +55,9 @@ minetest.override_item("multidimensions:teleporter_liraofd", {
 })
 
 minetest.register_lbm({ 
-	name = "apm_dimensionpack:schematic_placer_submerge",
+	name = "apm_dimensionpack:liraofd_schematic_placer_submerge",
 	run_at_every_load = true,
-	nodenames = {"group:apm_dimensionpack_schematic_submerge"},
+	nodenames = {"group:apm_dimensionpack_liraofd_schematic_submerge"},
 	action = function(pos, node)
 		minetest.set_node(pos, {name = "air"})
 		local tree=""
@@ -72,9 +73,9 @@ minetest.register_lbm({
 })
 
 minetest.register_lbm({ 
-	name = "apm_dimensionpack:schematic_placer",
+	name = "apm_dimensionpack:liraofd_schematic_placer",
 	run_at_every_load = true,
-	nodenames = {"group:apm_dimensionpack_schematic"},
+	nodenames = {"group:apm_dimensionpack_liraofd_schematic"},
 	action = function(pos, node)
 		minetest.set_node(pos, {name = "air"})
 		local tree=""
@@ -149,12 +150,34 @@ minetest.register_on_leaveplayer(function(player)
     original_sky[player:get_player_name()] = nil
 end)
 
-minetest.override_item("multidimensions:teleporterre", {
-	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_return.png", "default_obsidian.png", "default_obsidian.png^apm_dimensionpack_portal_block_return.png"},
-})
+
+
+
+
+-- Frostland
+
+local frostland_ground_ores = {
+	["apm_dimensionpack:snowbark_tree_1"] = 1000,
+	["apm_dimensionpack:snowbark_tree_2"] = 1000,
+	["apm_dimensionpack:deepfrozen_ice"] = 1000,
+	["apm_dimensionpack:deepfrozen_ice_1"] = 1000,
+	["apm_dimensionpack:deepfrozen_ice_2"] = 1000,
+}
+
+minetest.register_node("apm_dimensionpack:snowbark_tree_1", {drawtype="airlike",groups = {apm_dimensionpack_frostland_schematic_submerge=1,not_in_creative_inventory=1},})
+
+minetest.register_node("apm_dimensionpack:snowbark_tree_2", {drawtype="airlike",groups = {apm_dimensionpack_frostland_schematic_submerge=1,not_in_creative_inventory=1},})
+
+minetest.register_node("apm_dimensionpack:deepfrozen_ice_1", {drawtype="airlike",groups = {apm_dimensionpack_frostland_schematic=1,not_in_creative_inventory=1},})
+
+minetest.register_node("apm_dimensionpack:deepfrozen_ice_2", {drawtype="airlike",groups = {apm_dimensionpack_frostland_schematic=1,not_in_creative_inventory=1},})
+
+
+
+
 
 multidimensions.register_dimension("frostland",{
---	ground_ores = table.copy(liraofd_ground_ores),
+	ground_ores = table.copy(frostland_ground_ores),
 --	stone_ores = table.copy(liraofd_stone_ores),
 --	sand_ores={["default:clay"]={chunk=2,chance=5000}},
 --	grass_ores={
@@ -171,14 +194,58 @@ multidimensions.register_dimension("frostland",{
 	node={description="Frostland Portal-Block"},
 	craft = {
 		{"apm_dimensionpack:resonance_gemstone", "apm_dimensionpack:dimension_token_frostland", "apm_dimensionpack:resonance_gemstone"},
-		{"default:snowblock","apm_dimensionpack:resonance_gemstone_primed","default:snowblock",},
-		{"apm_dimensionpack:ice_obsidian", "apm_dimensionpack:ice_obsidian", "apm_dimensionpack:ice_obsidian"},
+		{"apm_dimensionpack:ice_obsidian","apm_dimensionpack:resonance_gemstone_primed","apm_dimensionpack:ice_obsidian",},
+		{"default:obsidian", "default:obsidian", "default:obsidian"},
 	}
 })
 
-minetest.override_item("multidimensions:teleporter_frostland", {
-	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_frostland.png", "apm_dimensionpack_ice_obsidian.png", "apm_dimensionpack_ice_obsidian.png^apm_dimensionpack_portal_block_frostland.png"},
+minetest.register_lbm({ 
+	name = "apm_dimensionpack:frostland_schematic_placer_submerge",
+	run_at_every_load = true,
+	nodenames = {"group:apm_dimensionpack_frostland_schematic_submerge"},
+	action = function(pos, node)
+		minetest.set_node(pos, {name = "air"})
+		local tree=""
+		if node.name=="apm_dimensionpack:snowbark_tree_1" then
+			tree=minetest.get_modpath("apm_dimensionpack") .. "/schematics/snowbark_tree_1.mts"
+		elseif node.name=="apm_dimensionpack:snowbark_tree_2" then
+			tree=minetest.get_modpath("apm_dimensionpack") .. "/schematics/snowbark_tree_2.mts"
+		end
+		minetest.place_schematic({x=pos.x,y=pos.y-1,z=pos.z}, tree, "random", {}, true)
+	end,
 })
+
+--minetest.register_lbm({ 
+--	name = "apm_dimensionpack:frostland_schematic_placer",
+--	run_at_every_load = true,
+--	nodenames = {"group:apm_dimensionpack_frostland_schematic"},
+--	action = function(pos, node)
+--		minetest.set_node(pos, {name = "air"})
+--		local tree=""
+--		if node.name=="apm_dimensionpack:deepfrozen_ice_1" then
+--			tree=minetest.get_modpath("apm_dimensionpack") .. "/schematics/deepfrozen_ice_1.mts"
+--		end
+--		minetest.place_schematic({x=pos.x,y=pos.y,z=pos.z}, tree, "random", {}, true)
+--	end,
+
+
+minetest.override_item("multidimensions:teleporter_frostland", {
+	tiles = {"apm_dimensionpack_portal_block_top.png^apm_dimensionpack_dimension_token_frostland.png", "default_obsidian.png", "default_obsidian.png^apm_dimensionpack_portal_block_frostland.png"},
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- Unregister base dimensions, bye bye

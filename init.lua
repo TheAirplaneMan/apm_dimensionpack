@@ -13,7 +13,12 @@ dofile(modpath.."/misc_item.lua")
 -- Frostland
 
 dofile(modpath.."/frostland_liquid.lua")
+dofile(modpath.."/frostland_crafting.lua")
 dofile(modpath.."/frostland_node.lua")
+dofile(modpath.."/frostland_item.lua")
+dofile(modpath.."/ice_cube.lua")
+dofile(modpath.."/ice_zombie.lua")
+
 
 -- Liraofd
 
@@ -43,3 +48,4 @@ dofile(modpath.."/oblivion_node.lua")
 -- DO NOT ALPHABETICALLY SORT DIMENSIONS OR IT WILL MESS UP THE GENERATION ORDER, YOU'VE BEEN WARNED....
 
 dofile(modpath.."/dimension.lua")
+

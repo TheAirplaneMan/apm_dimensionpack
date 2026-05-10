@@ -292,3 +292,24 @@ minetest.register_node("apm_dimensionpack:bog_grass", {
 		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16},
 	},
 })
+
+minetest.register_node("apm_dimensionpack:swampweed", {
+	description = ("Thorny Swampweed"),
+	drawtype = "plantlike",
+	waving = 1,
+	visual_scale = 1.29,
+	tiles = {"apm_dimensionpack_swampweed.png"},
+	inventory_image = "apm_dimensionpack_swampweed.png",
+	wield_image = "apm_dimensionpack_swampweed.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	buildable_to = true,
+	groups = {snappy = 3, flora = 1, attached_node = 1, grass = 1, bog_grass = 1, flammable = 1},
+	damage_per_second = 2,
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16},
+	},
+})
